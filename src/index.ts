@@ -36,7 +36,7 @@ class Game {
   Init() {
     this.Mount();
     this.master = new Master(this.canvas, { w: 10, h: 10 }, "#e63946");
-    for (let i = 0; i < 5000; i++) {
+    for (let i = 0; i < 500; i++) {
       const meteor = ObjectFactory.GetMeteor(this.canvas, this.master);
 
       this.meteors.push(meteor);
