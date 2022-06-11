@@ -1,0 +1,95 @@
+/* GRECHA */
+@font-face {
+  font-family: "grecha";
+  src: url("../Fonts/grecha/grecha.ttf");
+  /* CREDITS */
+  /* READ ME FONT GRECHA WEBSITE: https://www.behance.net/valeriycherevk */
+}
+
+/* IRENE_SANS */
+@font-face {
+  font-family: "EireneSans-Bold";
+  src: url("../Fonts//eirene_sans/EireneSans-Bold.otf");
+}
+
+@font-face {
+  font-family: "EireneSans-BoldItalic";
+  src: url("../Fonts/eirene_sans//EireneSans-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: "EireneSans-Italic";
+  src: url("../Fonts/eirene_sans/EireneSans-Italic.otf");
+}
+
+@font-face {
+  font-family: "EireneSans-Regular";
+  src: url("../Fonts/eirene_sans/EireneSans-Regular.otf");
+}
+
+/*
+* var declarations used which state is the wide application
+* 
+*/
+
+:root {
+  /* font vars */
+  --bold: "EireneSans-Bold";
+  --boldItalic: "EireneSans-BoldItalic";
+  --italic: "EireneSans-Italic";
+  --regular: "EireneSans-Regular";
+
+  /* color vars */
+  --one: #f8f9fa;
+  --two: #e9ecef;
+  --three: #dee2e6;
+  --four: #ced4da;
+  --five: #adb5bd;
+  --six: #6c757d;
+  --seven: #495057;
+  --eight: #343a40;
+  --nine: #212529;
+
+  /* screen */
+}
+
+
+/* global styling */
+* {
+  box-sizing: 0;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  color: var(--nine);
+  font-family: var(--regular);
+
+  /* centering everything horizontally and vertically */
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  /* background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%); */
+  background: linear-gradient(90deg, var(--seven) 0%, var(--nine) 100%);
+}
+
+
+
+/* game-container */
+
+.game-container {
+    height: 100%;
+    width: 100%;
+    /* outline: 2px solid var(--one); */
+    position: relative;
+}
+
+canvas{
+    /* height: 100%;
+    width: 100%; */
+    image-rendering: pixelated;
+}
