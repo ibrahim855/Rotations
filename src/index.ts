@@ -16,19 +16,21 @@ class Game {
   }
 
   Mount() {
-    const Container = Factory.createElement("div", null, "canvasContainer");
+    // const Container = Factory.createElement("div", null, "canvasContainer");
     this.canvas = <HTMLCanvasElement>(
       Factory.createElement("canvas", null, "canvas")
     );
-    this.canvas.height = window.innerHeight!;
-    this.canvas.width = window.innerWidth!;
+    // this.canvas.height = 800;
+    // this.canvas.width = 800;
     this.canvas.classList.add("game-container");
     // this.canvas.classList.add("canvas");
     this.canvas.height = innerHeight;
     this.canvas.width = innerWidth;
+
     this.ctx = this.canvas.getContext("2d");
-    Factory.mountElement(Container, this.canvas);
-    Factory.mountElement(document.body, Container);
+    // Factory.mountElement(Container, this.canvas);
+    // Factory.mountElement(document.body, Container);
+    Factory.mountElement(document.body, this.canvas);
   }
 
   Init() {
@@ -39,14 +41,14 @@ class Game {
 
       this.meteors.push(meteor);
     }
-
+    this.report();
     this.gameLoop();
   }
 
   gameLoop() {
     const step = () => {
-      this.ctx.fillStyle = 'rgba(0,0,0,0.05)';
-      this.ctx.fillRect(0,0,this.canvas.width, this.canvas.height);
+      this.ctx.fillStyle = "rgba(0,0,0,0.04)";
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
       this.update();
       this.render();
 
@@ -60,7 +62,24 @@ class Game {
 
   render() {
     this.master.render(this.ctx);
-    this.meteors.forEach(meteor => meteor.render(this.ctx));
+    this.meteors.forEach((meteor) => meteor.render(this.ctx));
+  }
+
+  report() {
+    // if ("serviceWorker" in navigator) {
+    //   navigator.serviceWorker.register("/service-worker.js").then((registration) => {
+    //     console.log(registration.scope);
+    //   });
+    // }
+
+    console.log(
+      "%cgithub: https://github.com/ibrahim855",
+      "color: whitesmoke; background-color:#e76f51; padding: 2em 1em;"
+    );
+    console.log(
+      "%cCurrently working at: Inceptium SRLS",
+      "color: whitesmoke; background-color:#e76f51; padding: 1em 1em;"
+    );
   }
 }
 

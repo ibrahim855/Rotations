@@ -33,7 +33,7 @@ class ObjectFactory {
       randomize(0.0, 6.28),
       master,
       0.3,
-      randomize(0.0, 100000.28)
+      randomize(0.0, 100.28)
     );
   }
 }
