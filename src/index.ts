@@ -47,7 +47,7 @@ class Game {
 
   gameLoop() {
     const step = () => {
-      this.ctx.fillStyle = "rgba(0,0,0,0.04)";
+      this.ctx.fillStyle = "rgba(0,0,0,0.03)";
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
       this.update();
       this.render();

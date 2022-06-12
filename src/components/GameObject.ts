@@ -12,7 +12,7 @@ class GameObject {
   }
 
   render(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = "rgba(0,0,0,0)";
+    ctx.fillStyle = "rgba(255,0,0,0.0)";
     ctx.fillRect(this.position.x, this.position.y, this.size.w, this.size.h);
   }
 
