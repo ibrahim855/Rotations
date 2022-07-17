@@ -16,5 +16,11 @@ type Blue = "#ffcdb2";
 type Color = Red | Blue;
 
 
+type Angle = number;
+type Radius = number;
+type Sign = -1 | 1;
 
-export {Position, Size, Color};
+
+
+
+export {Position, Size, Color, Angle, Radius, Sign};

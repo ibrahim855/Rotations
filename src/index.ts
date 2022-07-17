@@ -5,6 +5,10 @@ import ObjectFactory from "./components/utils";
 
 import "./style/App.css";
 
+
+
+const __METEORS = 200;
+
 class Game {
   private canvas: HTMLCanvasElement = null;
   private ctx: CanvasRenderingContext2D = null;
@@ -16,27 +20,23 @@ class Game {
   }
 
   Mount() {
-    // const Container = Factory.createElement("div", null, "canvasContainer");
     this.canvas = <HTMLCanvasElement>(
       Factory.createElement("canvas", null, "canvas")
     );
-    // this.canvas.height = 800;
-    // this.canvas.width = 800;
+
     this.canvas.classList.add("game-container");
-    // this.canvas.classList.add("canvas");
     this.canvas.height = innerHeight;
     this.canvas.width = innerWidth;
 
     this.ctx = this.canvas.getContext("2d");
-    // Factory.mountElement(Container, this.canvas);
-    // Factory.mountElement(document.body, Container);
+
     Factory.mountElement(document.body, this.canvas);
   }
 
   Init() {
     this.Mount();
     this.master = new Master(this.canvas, { w: 10, h: 10 }, "#e63946");
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < __METEORS; i++) {
       const meteor = ObjectFactory.GetMeteor(this.canvas, this.master);
 
       this.meteors.push(meteor);
@@ -46,19 +46,38 @@ class Game {
   }
 
   gameLoop() {
-    const step = () => {
+    // TODO: 
+      // some perfomance measurements
+      let A = 0;
+      let B = 0;
+      let FPS = 0;
+      let elapsed = 0;
+
+    const step = (deltaTime: number) => {
+      B = deltaTime;
+      
+      
       this.ctx.fillStyle = "rgba(0,0,0,0.03)";
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-      this.update();
+      this.update(elapsed);
       this.render();
+      
+      FPS = (B - A) / 1000;
+      elapsed = 1000 / (B - A);
 
+
+
+
+      A = B;
       requestAnimationFrame(step);
     };
 
     requestAnimationFrame(step);
   }
 
-  update() {}
+  update(elapsed: number) {
+    this.meteors.forEach(meteor => meteor.update(elapsed));
+  }
 
   render() {
     this.master.render(this.ctx);

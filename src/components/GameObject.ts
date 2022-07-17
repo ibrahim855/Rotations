@@ -16,7 +16,7 @@ class GameObject {
     ctx.fillRect(this.position.x, this.position.y, this.size.w, this.size.h);
   }
 
-  update() {}
+  update(elapsed: number) {}
 }
 
 export default GameObject;

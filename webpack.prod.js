@@ -11,7 +11,7 @@
    mode: 'production',
    plugins: [
     new HtmlWebpackPlugin({
-      title: "Ibrahim Qronfli",
+      title: "Rotations",
       favicon: "./src/assets/food.ico",
     }),
     new WorkboxPlugin.GenerateSW({
