@@ -1,5 +1,5 @@
 {
-  "name": "my",
+  "name": "Rotational Trajectories",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "start": "webpack serve --open --config webpack.dev.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ibrahim Qronfli",
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.1",
