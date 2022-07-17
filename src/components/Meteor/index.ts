@@ -33,7 +33,7 @@ class Meteor extends GameObject {
     canvas: HTMLCanvasElement,
     p: Position,
     s: Size,
-    c: Color,
+    c: string,
     radius: Radius,
     theta: Angle,
     master: Master,
@@ -62,8 +62,17 @@ class Meteor extends GameObject {
     let xPosition = (this.radius * Math.cos(this.theta)) / aRatio;
     let yPosition = (this.radius * Math.sin(this.theta)) / bRation;
 
-    // applying a linear Transformation by multiplying by a rotation matrix
+    // applying a rotation to the plane with a linear tranformation 
 
+    /*
+      [
+        cos β -sin β
+        sin β cos β
+      ]
+    */
+
+
+    // can we make better ?? 
     this.xTransformation =
       this.masterRef.position.x +
       (xPosition * Math.cos(this.beta) + yPosition * Math.sin(this.beta));
@@ -72,14 +81,14 @@ class Meteor extends GameObject {
       this.masterRef.position.y +
       -1 * xPosition * Math.sin(this.beta) +
       yPosition * Math.cos(this.beta);
+    
+    // update theta 
     this.theta += this.sign * (0.0002 * this.radius);
   }
 
   render(ctx: CanvasRenderingContext2D) {
-    
     ctx.fillStyle = this.color;
     ctx.fillRect(this.xTransformation, this.yTransformation, this.size.w, this.size.h);
-
   }
 }
 

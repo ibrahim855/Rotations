@@ -3,9 +3,9 @@ import { Color, Position, Size } from "./types/generals";
 class GameObject {
   public position: Position;
   protected size: Size;
-  protected color: Color;
+  protected color: string;
 
-  constructor(p: Position, s: Size, c: Color) {
+  constructor(p: Position, s: Size, c: string) {
     this.position = p;
     this.size = s;
     this.color = c;

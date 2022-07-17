@@ -15,10 +15,16 @@ class Game {
   private master: Master = null;
   private meteors: Meteor[] = [];
 
+
+
+
   constructor() {
     console.log("Program Initialized...");
   }
 
+
+
+  /* mounting everything on the DOM */
   Mount() {
     this.canvas = <HTMLCanvasElement>(
       Factory.createElement("canvas", null, "canvas")
@@ -57,8 +63,11 @@ class Game {
       B = deltaTime;
       
       
-      this.ctx.fillStyle = "rgba(0,0,0,0.03)";
+      // clean the scene
+      this.ctx.fillStyle = "rgba(0,0,0,0.05)";
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+      // update and render gameObjects 
       this.update(elapsed);
       this.render();
       
@@ -85,11 +94,6 @@ class Game {
   }
 
   report() {
-    // if ("serviceWorker" in navigator) {
-    //   navigator.serviceWorker.register("/service-worker.js").then((registration) => {
-    //     console.log(registration.scope);
-    //   });
-    // }
 
     console.log(
       "%cgithub: https://github.com/ibrahim855",
