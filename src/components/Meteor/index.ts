@@ -10,6 +10,9 @@ import { Color, Position, Size, Angle, Radius, Sign } from "../types/generals";
  * 
  */
 
+// we need to a better orbits 
+// cause it seems meteros are a bit off the trajectory.
+
 class Meteor extends GameObject {
   /* static  */
   static counter: number = 0;
